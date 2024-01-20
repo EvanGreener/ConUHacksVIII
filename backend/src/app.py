@@ -6,6 +6,7 @@ import requests, os, json
 from functools import wraps
 import pandas as pd
 import numpy as np
+import os
 
 load_dotenv()
 
@@ -15,18 +16,20 @@ CORS(app)  # Enable CORS for all routes
 @app.route('/api/get-statistics', methods=['POST'])
 def get_statistics():
     try:
-
         content_type = request.headers.get('Content-Type')
+        print("1")
         if (content_type != 'application/json'):
             return make_response(jsonify({"error": "Content type not application/json"}), 500)
         
         # Will use later
         request_body = request.json
+        print("2")
 
         data_folder = '../datasets'
-        crime_df = pd.read_csv(data_folder+ "/actes-criminels.csv")
-        
-        return make_response(crime_df.to_dict(), 200)
+        crime_df = pd.read_csv( os.path.join(os.path.dirname(__file__), "../datasets/actes-criminels.csv") )
+        print("3")
+
+        return make_response(jsonify(crime_df.to_dict()), 200)
     except Exception as e :
         return make_response(jsonify({"error": e}), 500)
 
