@@ -12,9 +12,15 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-@app.route('/api/get-statistics', methods=['GET'])
+@app.route('/api/get-statistics', methods=['POST'])
 def get_statistics():
-    return 'Hello, World!'
+    content_type = request.headers.get('Content-Type')
+    if (content_type != 'application/json'):
+        return make_response(jsonify({"error": "Content type not application/json"}), 500)
+    
+    request_body = request.json
+
+    return make_response("WIP", 200)
 
 # Start the server
 if __name__ == '__main__':
