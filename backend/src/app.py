@@ -7,6 +7,7 @@ from functools import wraps
 import pandas as pd
 import numpy as np
 import os
+from datetime import date, datetime
 
 load_dotenv()
 
@@ -17,17 +18,24 @@ CORS(app)  # Enable CORS for all routes
 def get_statistics():
     try:
         content_type = request.headers.get('Content-Type')
-        print("1")
         if (content_type != 'application/json'):
             return make_response(jsonify({"error": "Content type not application/json"}), 500)
         
-        # Will use later
+        date_col = 'DATE'
+        category_col = 'CATEGORIE'
+        x_col = 'X'
+        y_col = 'Y'
+        longtitude_col = 'LONGITUDE'
+        latitude_col = 'LATITUDE'
         request_body = request.json
-        print("2")
 
-        data_folder = '../datasets'
+        start_date = pd.to_datetime(request_body['startDate'])
+        end_date = pd.to_datetime(request_body['endDate'])
+
         crime_df = pd.read_csv( os.path.join(os.path.dirname(__file__), "../datasets/actes-criminels.csv") )
-        print("3")
+
+        # Keep only crimes from start - end 
+        crime_df = crime_df[((crime_df[date_col] > start_date) & (crime_df[date_col] < end_date) )]
 
         return make_response(jsonify(crime_df.to_dict()), 200)
     except Exception as e :
