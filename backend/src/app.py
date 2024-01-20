@@ -42,9 +42,7 @@ def get_statistics():
 
         # Filter date range
         crime_df['DATE'] = pd.to_datetime(crime_df['DATE'])
-        start_date = pd.to_datetime('2024-01-15')
-        end_date = pd.to_datetime('2024-12-31')
-
+        
         # Filter rows based on the date range
         crime_df = crime_df[(crime_df['DATE'] >= start_date) & (crime_df['DATE'] <= end_date)]
 
