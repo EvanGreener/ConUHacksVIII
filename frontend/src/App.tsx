@@ -1,7 +1,13 @@
-import Map from "./components/Map";
-
 const App = () => {
-  return <Map />;
+  return (
+    <>
+      <h1>React App</h1>
+      <p>
+        This is a React app. It is served by the backend and is not a static
+        file.
+      </p>
+    </>
+  );
 };
 
 export default App;
