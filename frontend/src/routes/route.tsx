@@ -1,3 +1,5 @@
+import TrendingPosts from "../components/TrendingPosts";
+
 export default function Root() {
   let name: string = "Matteo";
 
@@ -21,18 +23,11 @@ export default function Root() {
             <button type="submit">New</button>
           </form>
         </div>
-        <nav>
-          <ul>
-            <li>
-              <a href={`/contacts/1`}>Your Name</a>
-            </li>
-            <li>
-              <a href={`/contacts/2`}>Your Friend</a>
-            </li>
-          </ul>
-        </nav>
+
+        <div>
+          <TrendingPosts />
+        </div>
       </div>
-      <div id="detail"></div>
     </>
   );
 }
