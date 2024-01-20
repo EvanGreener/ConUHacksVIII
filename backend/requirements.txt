@@ -1,17 +1,63 @@
-blinker==1.7.0
-click==8.1.7
-Flask==3.0.1
+async-timeout==4.0.2
+attrs==22.2.0
+blinker==1.6.2
+brotlipy==0.7.0
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_477u68wvzm/croot/certifi_1671487773341/work/certifi
+cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1b0qzba5nr/croot/cffi_1670423213150/work
+charset-normalizer==3.0.1
+click==8.1.3
+conda==22.11.1
+conda-content-trust @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0afea0f9-bbf5-446c-8d60-8151cc05b029p0nco1nn/croots/recipe/conda-content-trust_1658126375910/work
+conda-package-handling @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_9an_ntrizz/croot/conda-package-handling_1666940386489/work
+cryptography @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_3evwafgyg8/croot/cryptography_1665612651044/work
+distlib==0.3.6
+filelock==3.10.0
+flasgger==0.9.5
+Flask==2.2.2
+Flask-Cors==3.0.10
+Flask-MySQLdb==1.0.1
+idna @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_00jf0h4zbt/croot/idna_1666125573348/work
+importlib-metadata==6.0.0
+importlib-resources==5.10.2
 itsdangerous==2.1.2
-Jinja2==3.1.3
+Jinja2==3.1.2
 joblib==1.3.2
-MarkupSafe==2.1.4
-numpy==1.26.3
+jsonschema==4.17.3
+MarkupSafe==2.1.2
+mistune==2.0.4
+mysql-connector-python-rf==2.2.2
+mysqlclient==2.1.1
+numpy==1.26.1
 pandas==2.2.0
+pkgutil_resolve_name==1.3.10
+platformdirs==3.1.1
+pluggy @ file:///opt/concourse/worker/volumes/live/8277900c-164a-49c8-6f2a-f55c3c0154be/volume/pluggy_1648042581708/work
+pyarrow==14.0.2
+pycosat @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ebsmghz9nu/croot/pycosat_1666805511853/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+PyMysqlPool==1.0.9
+pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+pyrsistent==0.19.3
+PySocks @ file:///Users/builder/ci_310/pysocks_1642536366386/work
 python-dateutil==2.8.2
+python-dotenv==0.21.1
 pytz==2023.3.post1
-scikit-learn==1.4.0
-scipy==1.11.4
-six==1.16.0
+PyYAML==6.0
+redis==4.4.2
+requests==2.28.2
+ruamel.yaml @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_7de1zqcaou/croot/ruamel.yaml_1666304553877/work
+ruamel.yaml.clib @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_c7s0zxy4t2/croot/ruamel.yaml.clib_1666302244557/work
+scikit-learn==1.3.2
+scipy==1.11.3
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sklearn==0.0.post11
+spotipy==2.22.0
 threadpoolctl==3.2.0
+toolz @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_a7gkswah88/croot/toolz_1667464082910/work
+tqdm @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_2adqcbsqqd/croots/recipe/tqdm_1664392689227/work
 tzdata==2023.4
-Werkzeug==3.0.1
+urllib3==1.26.14
+virtualenv==20.21.0
+waitress==2.1.2
+Werkzeug==2.2.2
+zipp==3.11.0
