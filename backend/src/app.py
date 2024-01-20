@@ -25,7 +25,7 @@ def get_statistics():
         category_col = 'CATEGORIE'
         x_col = 'X'
         y_col = 'Y'
-        longtitude_col = 'LONGITUDE'
+        longitude_col = 'LONGITUDE'
         latitude_col = 'LATITUDE'
         request_body = request.json
 
@@ -34,19 +34,14 @@ def get_statistics():
 
         crime_df = pd.read_csv( os.path.join(os.path.dirname(__file__), "../datasets/actes-criminels.csv") )
 
-        # Keep only crimes from start - end 
-        crime_df = crime_df[((crime_df[date_col] > start_date) & (crime_df[date_col] < end_date) )]
-
         # Filter out rows with NaN values in longitude or latitude
         crime_df = crime_df.dropna(subset=['LONGITUDE', 'LATITUDE'])
 
         # Filter date range
-        crime_df['DATE'] = pd.to_datetime(crime_df['DATE'])
-        
-        # Filter rows based on the date range
-        crime_df = crime_df[(crime_df['DATE'] >= start_date) & (crime_df['DATE'] <= end_date)]
+        crime_df[date_col] = pd.to_datetime(crime_df[date_col])
+        crime_df = crime_df[(crime_df[date_col] >= start_date) & (crime_df[date_col] <= end_date)]
 
-        crime_array = crime_df[['CATEGORIE', 'LONGITUDE', 'LATITUDE']].values.tolist()
+        crime_array = crime_df[[category_col, longitude_col, latitude_col]].values.tolist()
 
         return make_response(jsonify(crime_array), 200)
     except Exception as e :
