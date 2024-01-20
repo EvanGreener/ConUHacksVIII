@@ -1,7 +1,15 @@
-const express = require('express')
-var router = express.Router();
+const admin = require("firebase-admin");
 
-const auth = function (req, res, next) {
-    console.log('LOGGED')
-    next()
+// Middleware to authenticate the Firebase token
+const auth = async (req, res, next) => {
+  const token = req.headers.authorization;
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    req.user = decodedToken;
+    next();
+  } catch (error) {
+    res.status(401).send("You are not authorized");
   }
+};
+
+module.exports = auth;
