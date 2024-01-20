@@ -37,9 +37,13 @@ def get_statistics():
         # Keep only crimes from start - end 
         crime_df = crime_df[((crime_df[date_col] > start_date) & (crime_df[date_col] < end_date) )]
 
-        return make_response(jsonify(crime_df.to_dict()), 200)
+        # Filter out rows with NaN values in longitude or latitude
+        crime_df = crime_df.dropna(subset=['LONGITUDE', 'LATITUDE'])
+        crime_array = crime_df[['CATEGORIE', 'LONGITUDE', 'LATITUDE']].values.tolist()
+
+        return make_response(jsonify(crime_array), 200)
     except Exception as e :
-        return make_response(jsonify({"error": e}), 500)
+        return make_response(jsonify({"error": str(e)}), 500)
 
 
 # Start the server
