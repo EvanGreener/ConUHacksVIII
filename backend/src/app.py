@@ -39,6 +39,15 @@ def get_statistics():
 
         # Filter out rows with NaN values in longitude or latitude
         crime_df = crime_df.dropna(subset=['LONGITUDE', 'LATITUDE'])
+
+        # Filter date range
+        crime_df['DATE'] = pd.to_datetime(crime_df['DATE'])
+        start_date = pd.to_datetime('2024-01-15')
+        end_date = pd.to_datetime('2024-12-31')
+
+        # Filter rows based on the date range
+        crime_df = crime_df[(crime_df['DATE'] >= start_date) & (crime_df['DATE'] <= end_date)]
+
         crime_array = crime_df[['CATEGORIE', 'LONGITUDE', 'LATITUDE']].values.tolist()
 
         return make_response(jsonify(crime_array), 200)
