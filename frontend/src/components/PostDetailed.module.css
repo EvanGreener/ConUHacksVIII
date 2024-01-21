@@ -1,4 +1,50 @@
+
+.container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    margin: 3% 15%;
+}
+
 .title {
-    font-size: 1.5em;
-    margin: 0.67em 0;
+    font-family: Harding, Palatino, serif;
+    font-size: 2.8em;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.author {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+.date {
+    color: gray;
+}
+
+.progressBarOuter {
+    background-color: mintcream;
+    height: 8px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.progressBarInner {
+    background-color: green;
+    height: 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.progressBarInnerFull {
+    background-color: green;
+    height: 8px;
+    border-radius: 5px;
+}
+
+.funding {
+    font-family: Harding, Palatino, serif;
+    font-size: 1.1em;
+    text-align: right;
+    color: peachpuff;
+    margin-top: 2px;
 }
