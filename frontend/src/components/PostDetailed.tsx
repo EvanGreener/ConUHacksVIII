@@ -28,6 +28,7 @@ const PostDetailed = () => {
       </div>
       <div className={styles.funding}>${fundedAmount} funded of ${fundingGoal} goal</div>
       <p className={styles.body}>{body}</p>
+      <button type="button" className={styles.blockBtn}>Donate</button>
     </div>
   );
 };

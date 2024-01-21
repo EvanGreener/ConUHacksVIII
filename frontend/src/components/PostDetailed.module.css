@@ -47,4 +47,25 @@
     text-align: right;
     color: peachpuff;
     margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+.blockBtn {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #005F5F;
+    border-radius: 5px;
+    padding: 14px 28px;
+    margin-top: 25px;
+    font-family: Harding, Palatino, serif;
+    font-size: 18px;
+    color: peachpuff;
+    cursor: pointer;
+    text-align: center;
+    opacity: 90%
+}
+
+.blockBtn:hover {
+    opacity: 100%
 }
