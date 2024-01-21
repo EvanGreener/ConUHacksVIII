@@ -24,8 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
-app.use("/api/comments", postsRouter);
-app.use("/api/sponsors", postsRouter);
+app.use("/api/comments", commentsRouter);
+app.use("/api/sponsors", sponsorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
