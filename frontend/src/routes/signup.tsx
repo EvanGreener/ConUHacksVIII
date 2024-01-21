@@ -1,5 +1,3 @@
-import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import {
   createRegularUser,
   createResearcherUser,
@@ -27,13 +25,7 @@ const SignUp = () => {
 
   const signUp = async () => {
     try {
-      const response = await createUserWithEmailAndPassword(
-        FIREBASE_AUTH,
-        email,
-        password
-      );
-      const user = response.user;
-      if (user && userType === "regular") {
+      if (userType === "regular") {
         // create a new user in the database
         await createRegularUser(
           email,

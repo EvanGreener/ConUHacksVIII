@@ -7,7 +7,8 @@ const db = getFirestore();
 // Route to create a user
 router.post("/sign-up-regular", auth, async (req, res) => {
   try {
-    const { uid, firstName, lastName, education, occupation } = req.body;
+    const { uid, firstName, lastName, education, occupation, introduction } =
+      req.body;
 
     // Check if user already exists
     const doc = await db.collection("users").doc(uid).get();

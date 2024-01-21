@@ -12,8 +12,8 @@ initializeApp({
 
 var usersRouter = require("./routes/users");
 var postsRouter = require("./routes/posts");
-var commentsRouter = require('./routes/comments');
-var sponsorsRouter = require('./routes/sponsors');
+var commentsRouter = require("./routes/comments");
+var sponsorsRouter = require("./routes/sponsors");
 
 var app = express();
 
