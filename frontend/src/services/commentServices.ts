@@ -3,9 +3,9 @@ import { BASE_API_URL } from "../../backendConfig";
 
 export const createComment = async (
     uid: string,
+    pid: string,
     parentComment: string,
-    text: string,
-    createdTS: string
+    text: string
 ): Promise<void> => {
   if (!FIREBASE_AUTH.currentUser) {
     console.error("No current user found");
@@ -20,7 +20,7 @@ export const createComment = async (
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify({ uid, parentComment, text,  createdTS}),
+      body: JSON.stringify({ uid, pid, parentComment, text}),
     }
   );
 
