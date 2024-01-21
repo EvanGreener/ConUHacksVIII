@@ -7,6 +7,7 @@ import "./index.css";
 import Root from "./routes/route.tsx";
 import Login from "./routes/login.tsx";
 import SignUp from "./routes/signup.tsx";
+import Donate from "./routes/donate.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/donate",
+    element: <Donate/>,
     errorElement: <ErrorPage />,
   },
 ]);
