@@ -5,8 +5,8 @@ import { Post } from "../types/postTypes";
 const PostSummary = ({ post }: { post: Post }) => {
   return (
     <div className={styles.postsummary}>
-      <div className={styles.postsummarytitle}>
-        <h2>{post.title}</h2>
+      <div>
+        <h2 className={styles.postsummarytitle}> {post.title}</h2>
       </div>
       <div className={styles.postsummaryauthor}>
         <p>{}</p>

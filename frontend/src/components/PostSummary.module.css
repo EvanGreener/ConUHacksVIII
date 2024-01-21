@@ -1,4 +1,5 @@
 .postsummarytitle {
+  color: white;
 }
 
 .postsummary {
@@ -6,4 +7,6 @@
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
+  clear: both;
+  color: white;
 }
