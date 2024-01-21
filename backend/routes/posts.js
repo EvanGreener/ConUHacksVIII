@@ -9,6 +9,12 @@ router.post("/create-post/:uid", auth, async (req, res) => {
     const uid = req.params.uid;
     const { firstName, lastName, education, occupation } = req.body;
 
+    const user = (await db.collection("users").doc(uid).get()).data();
+
+    if (user.verified == null) {
+      return res.status(210).send("User is not a researcher");
+    }
+
     const postData = {
       firstName,
       lastName,
@@ -16,6 +22,7 @@ router.post("/create-post/:uid", auth, async (req, res) => {
       occupation,
       createdTS: FieldValue.serverTimestamp(),
       comments: [],
+      sponsors: [],
     };
 
     const postRef = await db.collection("posts").add(postData);
@@ -39,13 +46,11 @@ router.get("/:id", async (req, res) => {
   return res.status(200).json(post.data());
 });
 
-
 router.get("/latest", async (req, res) => {
-  const postRef = db.collection('posts');
-  const snapshot = await postRef.orderBy('createdTS', 'desc').limit(3).get();
-  const postData = snapshot.docs.map(post => post.data());
+  const postRef = db.collection("posts");
+  const snapshot = await postRef.orderBy("createdTS", "desc").limit(3).get();
+  const postData = snapshot.docs.map((post) => post.data());
   return res.status(200).json(postData);
 });
-
 
 module.exports = router;
