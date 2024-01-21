@@ -16,21 +16,14 @@ router.post("/create-post/:uid", auth, async (req, res) => {
     }
 
     const postData = {
+      author: uid,
       title,
       description,
       attachmentURL,
       createdTS: FieldValue.serverTimestamp(),
-      comments: [],
-      sponsors: [],
     };
 
-    const postRef = await db.collection("posts").add(postData);
-    const postId = postRef.id;
-
-    await db
-      .collection("users")
-      .doc(uid)
-      .update({ posts: FieldValue.arrayUnion(postId) });
+    await db.collection("posts").add(postData);
 
     return res.status(201).send("Post created successfully");
   } catch (error) {

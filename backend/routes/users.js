@@ -61,7 +61,6 @@ router.post("/sign-up-researcher", auth, async (req, res) => {
       locationName,
       introduction,
       verified: false,
-      posts: [],
       createdTS: FieldValue.serverTimestamp(),
     });
     return res.status(201).send("User created successfully");

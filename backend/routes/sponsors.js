@@ -5,22 +5,16 @@ const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const db = getFirestore();
 
 router.post("/sponsor-post", async (req, res) => {
-  const { amount, sponsorUID, posterUID } = req.body;
+  const { amount, sponsorUID, postId } = req.body;
 
   const sponsorData = {
     amount,
     sponsorUID,
-    posterUID,
+    postId,
     createdTS: FieldValue.serverTimestamp(),
   };
 
-  const sponsorRef = await db.collection("sponsors").add(sponsorData);
-  const sponsorId = sponsorRef.id;
-
-  await db
-    .collection("posts")
-    .doc(posterUID)
-    .update({ sponsors: FieldValue.arrayUnion(sponsorId) });
+  await db.collection("sponsors").add(sponsorData);
 
   return res.status(201).send("Sponsor created successfully");
 });

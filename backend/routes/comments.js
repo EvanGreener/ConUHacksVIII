@@ -6,21 +6,16 @@ const db = getFirestore();
 
 router.post("/create-comment", auth, async (req, res) => {
   try {
-    const { uid, pid, parentComment, text } = req.body;
+    const { uid, postId, parentComment, text } = req.body;
 
     const commentData = {
       uid,
+      postId,
       parentComment,
       text,
       createdTS: FieldValue.serverTimestamp(),
     };
-    const commentRef = await db.collection("comments").add(commentData);
-    const commentId = commentRef.id;
-
-    await db
-      .collection("posts")
-      .doc(pid)
-      .update({ comments: FieldValue.arrayUnion(commentId) });
+    await db.collection("comments").add(commentData);
 
     return res.status(201).send("Comment created successfully");
   } catch (error) {

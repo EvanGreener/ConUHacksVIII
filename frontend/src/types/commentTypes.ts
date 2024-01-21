@@ -1,6 +1,6 @@
 export type Comment = {
   uid: string;
-  pid: string;
+  postId: string;
   parentComment: string | null;
   text: string;
 };
