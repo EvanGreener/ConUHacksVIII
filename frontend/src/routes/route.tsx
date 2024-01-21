@@ -1,30 +1,20 @@
 import TrendingPosts from "../components/TrendingPosts";
 import PostDetailed from "../components/PostDetailed";
+import Navbar from "../components/Navbar.tsx";
 
 export default function Root() {
   return (
     <>
+      <div>
+        <Navbar/>
+      </div>
       <div id="sidebar">
-        <h1>Hello *user*</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-            <li>
-              <a href="/signup">Sign Up</a>
-            </li>
-          </ul>
-        </nav>
 
         <div>
-          <TrendingPosts />
+          <TrendingPosts/>
         </div>
         <div>
-          <PostDetailed />
+          <PostDetailed/>
         </div>
       </div>
     </>
