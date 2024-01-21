@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./PostSummary.module.css";
 import { Post } from "../types/postTypes";
-import { User } from "../types/userTypes";
 
-const PostSummary = ({ post, user }: { post: Post; user: User }) => {
+const PostSummary = ({ post }: { post: Post }) => {
   return (
     <div className={styles.postsummary}>
       <div className={styles.postsummarytitle}>
@@ -13,10 +12,10 @@ const PostSummary = ({ post, user }: { post: Post; user: User }) => {
         <p>{}</p>
       </div>
       <div className="post-summary__date">
-        <p>Post Date</p>
+        <p>{post.createdTS}</p>
       </div>
       <div className="post-summary__body">
-        <p>Post description</p>
+        <p>{post.description}</p>
       </div>
     </div>
   );

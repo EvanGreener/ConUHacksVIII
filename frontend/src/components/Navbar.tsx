@@ -18,6 +18,9 @@ const Navbar = () => {
             <li>
               <NavLink to="/signup">Sign up</NavLink>
             </li>
+            <li>
+              <NavLink to="/donate">Donate</NavLink>
+            </li>
           </ul>
         </div>
       </div>
