@@ -39,4 +39,13 @@ router.get("/:id", async (req, res) => {
   res.send("");
 });
 
+
+router.get("/latest", async (req, res) => {
+  const postRef = db.collection('posts');
+  const snapshot = await postRef.orderBy('createdTS', 'desc').limit(3).get();
+  const postData = snapshot.docs.map(post => post.data());
+  return res.status(200).json(postData);
+});
+
+
 module.exports = router;
