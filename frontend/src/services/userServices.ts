@@ -21,7 +21,7 @@ export const createRegularUser = async (
 
     if (FIREBASE_AUTH.currentUser) {
       const idToken = await FIREBASE_AUTH.currentUser.getIdToken();
-      const response = await fetch(`${BASE_API_URL}/sign-up-regular`, {
+      const response = await fetch(`${BASE_API_URL}/users/sign-up-regular`, {
         headers: {
           Authorization: idToken,
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export const createResearcherUser = async (
     const user = response.user;
     if (FIREBASE_AUTH.currentUser) {
       const idToken = await FIREBASE_AUTH.currentUser.getIdToken();
-      const response = await fetch(`${BASE_API_URL}/sign-up-researcher`, {
+      const response = await fetch(`${BASE_API_URL}/users/sign-up-researcher`, {
         headers: {
           Authorization: idToken,
           "Content-Type": "application/json",
