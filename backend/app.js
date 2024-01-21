@@ -10,7 +10,7 @@ initializeApp({
   credential: cert(serviceAccount),
 });
 
-var loginRouter = require("./routes/login");
+var usersRouter = require("./routes/users");
 var postsRouter = require("./routes/posts");
 
 var app = express();
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/login", loginRouter);
+app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
 
 // catch 404 and forward to error handler
