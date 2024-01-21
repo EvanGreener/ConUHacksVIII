@@ -45,7 +45,7 @@ const TrendingPosts = () => {
   }, []);
 
   return (
-    <div className="trending-posts">
+    <div className={style.trendingPosts}>
       <h2>Trending Posts</h2>
       <div className={style.posts}>
         {posts.map((post: any) => (

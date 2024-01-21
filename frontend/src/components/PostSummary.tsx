@@ -7,16 +7,16 @@ const PostSummary = ({ post, user }: { post: Post; user: User }) => {
   return (
     <div className={styles.postsummary}>
       <div className={styles.postsummarytitle}>
-        <h2>{post.title}</h2>
+        <h2>Title</h2>
       </div>
       <div className={styles.postsummaryauthor}>
-        <p>{user.firstName}</p>
+        <p>Author</p>
       </div>
       <div className="post-summary__date">
-        <p>{post.createdTS}</p>
+        <p>Post Date</p>
       </div>
       <div className="post-summary__body">
-        <p>{post.description}</p>
+        <p>Post description</p>
       </div>
     </div>
   );
