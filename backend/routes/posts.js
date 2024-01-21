@@ -7,7 +7,7 @@ const db = getFirestore();
 router.post("/create-post/:uid", auth, async (req, res) => {
   try {
     const uid = req.params.uid;
-    const { firstName, lastName, education, occupation } = req.body;
+    const { title, description, attachmentURL } = req.body;
 
     const user = (await db.collection("users").doc(uid).get()).data();
 
@@ -16,10 +16,9 @@ router.post("/create-post/:uid", auth, async (req, res) => {
     }
 
     const postData = {
-      firstName,
-      lastName,
-      education,
-      occupation,
+      title,
+      description,
+      attachmentURL,
       createdTS: FieldValue.serverTimestamp(),
       comments: [],
       sponsors: [],
