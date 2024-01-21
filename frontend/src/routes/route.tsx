@@ -1,4 +1,5 @@
 import TrendingPosts from "../components/TrendingPosts";
+import PostDetailed from "../components/PostDetailed";
 
 export default function Root() {
   let name: string = "Matteo";
@@ -26,6 +27,9 @@ export default function Root() {
 
         <div>
           <TrendingPosts />
+        </div>
+        <div>
+          <PostDetailed />
         </div>
       </div>
     </>
