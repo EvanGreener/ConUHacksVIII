@@ -13,10 +13,16 @@
 }
 
 .logo {
-  /* Adjust based on your logo */
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
+  font-family: "Arial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 8px 15px;
+  margin-right: 20px;
+  border-radius: 4px;
+
+  vertical-align: middle;
+  line-height: 1;
 }
 
 .nav-elements ul {

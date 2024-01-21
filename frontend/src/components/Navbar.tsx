@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <div className="logo"></div>
+        <div className="logo">ResearchBoost</div>
         <div className="nav-elements">
           <ul>
             <li>
