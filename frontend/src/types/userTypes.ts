@@ -1,3 +1,5 @@
+import { Post } from "./postTypes";
+
 export type User = {
   uid: string;
   firstName: string;
@@ -8,4 +10,5 @@ export type User = {
   locationName: string | undefined;
   education: string | undefined;
   occupation: string | undefined;
+  posts: Post | undefined;
 };
