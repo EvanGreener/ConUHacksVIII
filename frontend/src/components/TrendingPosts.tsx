@@ -3,35 +3,42 @@ import PostSummary from "./PostSummary";
 import style from "./TrendingPosts.module.css";
 
 const TrendingPosts = () => {
-  const [posts, setPosts] = React.useState();
-
   // fake posts with title, summary, author, date,
   const fakePosts = [
     {
-      title: "Post Title",
-      summary: "Post summary",
-      author: "Author Name",
-      date: "Post Date",
+      title: "Lorem ipsum dolor",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
+      author: "John Doe",
+      date: "January 1, 1970",
+      index: 0,
     },
     {
-      title: "Post Title",
-      summary: "Post summary",
-      author: "Author Name",
-      date: "Post Date",
+      title: "Lorem ipsum dolor",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
+      author: "John Doe",
+      date: "January 1, 1970",
+      index: 1,
     },
     {
-      title: "Post Title",
-      summary: "Post summary",
-      author: "Author Name",
-      date: "Post Date",
+      title: "Lorem ipsum dolor",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
+      author: "John Doe",
+      date: "January 1, 1970",
+      index: 2,
     },
     {
-      title: "Post Title",
-      summary: "Post summary",
-      author: "Author Name",
-      date: "Post Date",
+      title: "Lorem ipsum dolor",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
+      author: "John Doe",
+      date: "January 1, 1970",
+      index: 3,
     },
   ];
+  const [posts, setPosts] = React.useState<any>(fakePosts);
 
   React.useEffect(() => {
     setPosts(fakePosts);
@@ -41,12 +48,9 @@ const TrendingPosts = () => {
     <div className="trending-posts">
       <h2>Trending Posts</h2>
       <div className={style.posts}>
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
-        <PostSummary />
+        {posts.map((post: any) => (
+          <PostSummary key={post.index} post={post} /> // Added key prop
+        ))}
       </div>
     </div>
   );

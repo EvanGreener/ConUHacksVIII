@@ -1,20 +1,21 @@
-const PostSummary = () => {
+import React from "react";
+import styles from "./PostSummary.module.css";
+
+const PostSummary = ({ post }: any) => {
+  console.log(post);
   return (
-    <div className="post-summary">
-      <div className="post-summary__title">
-        <h2>Post Title</h2>
+    <div className={styles.postsummary}>
+      <div className={styles.postsummarytitle}>
+        <h2>{post.title}</h2>
       </div>
-      <div className="post-summary__author">
-        <p>Author Name</p>
+      <div className={styles.postsummaryauthor}>
+        <p>{post.author}</p>
       </div>
       <div className="post-summary__date">
-        <p>Post Date</p>
+        <p>{post.date}</p>
       </div>
       <div className="post-summary__body">
-        <p>Post Body</p>
-      </div>
-      <div className="post-summary__comments">
-        <p>Comments</p>
+        <p>{post.summary}</p>
       </div>
     </div>
   );
