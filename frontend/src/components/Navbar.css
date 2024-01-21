@@ -1,23 +1,51 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+.navbar {
+  background-color: #333; /* Dark background */
+  padding: 10px 20px; /* Spacing around */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
-li {
-    float: left;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.logo {
+  /* Adjust based on your logo */
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
 }
 
-li a:hover {
-    background-color: #111;
+.nav-elements ul {
+  list-style-type: none; /* Removes default list styles */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-elements ul li {
+  margin: 0 10px; /* Spacing between menu items */
+}
+
+.nav-elements ul li a {
+  color: #fff; /* Light text color for contrast */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-elements ul li a:hover {
+  color: #aaaaaa; /* Slightly lighter color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-elements ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

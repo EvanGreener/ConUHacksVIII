@@ -7,10 +7,10 @@ const PostSummary = ({ post, user }: { post: Post; user: User }) => {
   return (
     <div className={styles.postsummary}>
       <div className={styles.postsummarytitle}>
-        <h2>Title</h2>
+        <h2>{post.title}</h2>
       </div>
       <div className={styles.postsummaryauthor}>
-        <p>Author</p>
+        <p>{}</p>
       </div>
       <div className="post-summary__date">
         <p>Post Date</p>
