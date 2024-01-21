@@ -34,3 +34,22 @@ export const createPost = async (
     throw error;
   }
 };
+
+export const getLatestPosts = async (): Promise<Post[] | undefined> => {
+  try {
+    const response = await fetch(`${BASE_API_URL}/posts/latest`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error fetching latest posts.");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching latest posts:", error);
+    throw error;
+  }
+};
