@@ -12,6 +12,8 @@ initializeApp({
 
 var usersRouter = require("./routes/users");
 var postsRouter = require("./routes/posts");
+var commentsRouter = require('./routes/comments');
+var sponsorsRouter = require('./routes/sponsors');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
+app.use("/api/comments", postsRouter);
+app.use("/api/sponsors", postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
