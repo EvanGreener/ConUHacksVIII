@@ -1,6 +1,7 @@
 import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import { BASE_API_URL } from "../../backendConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { User } from "../types/userTypes";
 
 export const createRegularUser = async (
   email: string,
@@ -55,7 +56,7 @@ export const createResearcherUser = async (
   fieldOfReasearch: string,
   locationType: string,
   locationName: string
-): Promise<void> => {
+): Promise<User | undefined> => {
   try {
     const response = await createUserWithEmailAndPassword(
       FIREBASE_AUTH,
@@ -65,26 +66,31 @@ export const createResearcherUser = async (
     const user = response.user;
     if (FIREBASE_AUTH.currentUser) {
       const idToken = await FIREBASE_AUTH.currentUser.getIdToken();
-      const response = await fetch(`${BASE_API_URL}/users/sign-up-researcher`, {
-        headers: {
-          Authorization: idToken,
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          uid: user.uid,
-          firstName,
-          lastName,
-          introduction,
-          fieldOfReasearch,
-          locationName,
-          locationType,
-        }),
-      });
-      if (!response.ok) {
+      const responseUser = await fetch(
+        `${BASE_API_URL}/users/sign-up-researcher`,
+        {
+          headers: {
+            Authorization: idToken,
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            uid: user.uid,
+            firstName,
+            lastName,
+            introduction,
+            fieldOfReasearch,
+            locationName,
+            locationType,
+          }),
+        }
+      );
+      if (!responseUser.ok) {
         throw new Error("Failed to create user.");
       }
+      return await responseUser.json();
     }
+    return undefined;
   } catch (error) {
     console.error("Error creating user:", error);
     throw error;
