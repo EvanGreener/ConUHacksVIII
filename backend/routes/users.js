@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 const auth = require("../middleware/auth");
-const { getFirestore } = require("firebase-admin/firestore");
+const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const db = getFirestore();
 
 // Route to create a user
@@ -22,6 +22,8 @@ router.post("/sign-up-regular", auth, async (req, res) => {
       lastName,
       education,
       occupation,
+      introduction,
+      createdTS: FieldValue.serverTimestamp(),
     });
     return res.status(201).send("User created successfully");
   } catch (error) {
@@ -32,7 +34,15 @@ router.post("/sign-up-regular", auth, async (req, res) => {
 
 router.post("/sign-up-researcher", auth, async (req, res) => {
   try {
-    const { uid, firstName, lastName, education, occupation } = req.body;
+    const {
+      uid,
+      firstName,
+      lastName,
+      fieldOfReasearch,
+      locationType,
+      locationName,
+      introduction,
+    } = req.body;
 
     // Check if user already exists
     const doc = await db.collection("users").doc(uid).get();
@@ -45,8 +55,12 @@ router.post("/sign-up-researcher", auth, async (req, res) => {
     await db.collection("users").doc(uid).set({
       firstName,
       lastName,
-      education,
-      occupation,
+      fieldOfReasearch,
+      locationType,
+      locationName,
+      introduction,
+      verified: false,
+      createdTS: FieldValue.serverTimestamp(),
     });
     return res.status(201).send("User created successfully");
   } catch (error) {

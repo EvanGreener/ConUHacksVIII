@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 const auth = require("../middleware/auth");
-const { getFirestore, Timestamp, FieldValue } = require("firebase-admin/firestore");
+const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const db = getFirestore();
 
 router.post("/create-post/:uid", auth, async (req, res) => {
@@ -15,7 +15,6 @@ router.post("/create-post/:uid", auth, async (req, res) => {
       education,
       occupation,
       createdTS: FieldValue.serverTimestamp(),
-      lastModifiedTS: FieldValue.serverTimestamp(),
       comments: [],
     };
 
@@ -25,9 +24,9 @@ router.post("/create-post/:uid", auth, async (req, res) => {
     await db
       .collection("users")
       .doc(uid)
-      .update({ posts: FieldValue.arrayUnion(postId)});
+      .update({ posts: FieldValue.arrayUnion(postId) });
 
-    res.send("");
+    return res.status(201).send("Post created successfully");
   } catch (error) {
     console.error("Error creating post", error);
     res.status(500).send(error.message);
@@ -36,7 +35,8 @@ router.post("/create-post/:uid", auth, async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-  res.send("");
+  const post = await db.collection("posts").doc(id).get();
+  return res.status(200).json(post.data());
 });
 
 
